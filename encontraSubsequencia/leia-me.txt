@@ -1,0 +1,1 @@
+código fonte em java que encontra a maior subsequencia de uma array.
