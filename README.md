@@ -1,2 +1,2 @@
 # Java-projects
- java-simple-projects
+### Pequenos projetos, feitos em JAVA
