@@ -1,55 +1,44 @@
-package me1;
+package mepo02;
+import java.util.Random;
+import java.util.Scanner;
 
-/**
- *
- * @author maateus a.
- */
-public class Me1 {
-        
-    private static final int  A[] = {-2,3,4,12,7,-5,-11,-17,34,33,35};
-    private static int maior[], maiorPos;
+public class MEPO02 {
 
     public static void main(String[] args) {
-        maior = new int[A.length];
-        maiorPos = 0;
-        int s[] = new int[A.length];
-        for (int i = 0; i < s.length; i++) {
-            s[i] = 0;
-        }
-        subsequenciaMaxima(s, 0, 0, 0);
-        print(maior, maiorPos);
-        
-    }
+        Random gerador = new Random(); //+1
 
-    public static void subsequenciaMaxima(int s[], int pos, int posSol, int i) {
-        for (int j = pos; j < A.length; j++) {
-            if (i <= A[j]) {
-                s[posSol] = (int) A[j];
-                subsequenciaMaxima(s, j + 1, posSol + 1, A[j]);
-            } else {
-                verificaMaior(s, posSol);
+        int array[] = new int[10];  //+1
+
+        for (int i = 0; i < array.length; i++) { //1+1+n+n
+            array[i] = gerador.nextInt(); //10
+        }
+
+        for (int i = 0; i < array.length; i++) { //1+1+n+n
+            System.out.print(array[i] + ", "); //+10
+        }
+
+        System.out.println(); //0
+        System.out.println();//0
+
+        String sequencia = ""; //+1
+        int somaMaior = 0; //+n
+        int somaAtual = 0; //+n
+
+        for (int i = 0; i < array.length -2; i++) { //1+1+n+n
+            somaAtual = array[i] + array[i + 1] + array[i + 2]; //+1
+            System.out.println(array[i] + " + " + array[i + 1] + " + " + array[i + 2] + " = " + somaAtual); //+1
+            if (somaAtual > somaMaior) { //+1
+              somaMaior = somaAtual; //+1
+              sequencia = array[i] + " + " + array[i + 1] + " + " + array[i + 2] + " = " + somaAtual; //+1
             }
         }
-        verificaMaior(s, posSol);
-    }
 
-    public static void print(int[] v, int lastPos) {
-        System.out.println("Maior subsequência: ");
-        for (int i = 0; i < lastPos; i++) {
-            
-        System.out.print(v[i] + " ");
-        }
-        System.out.println("");
+        System.out.println();
+        System.out.println("Maior soma: " + sequencia); //+1
     }
-    
-    private static void verificaMaior(int[] s, int posSol) {
-        if (posSol > maiorPos) {
-            for (int i = 0; i < s.length; i++) {
-                maior[i] = s[i];
-            }
-            maiorPos = posSol;
-        }
-    }
-    
-    
 }
+//contagem de instruções: 35 + 8n
+//complexidade: O(1+n^2) =>N (é a quantidade de entradas/saídas de iterações);
+//                       =>1+ (é o if aninhado com o For)
+//Esse algoritmo é bom, pois: dispensa entrada de informações, realiza a contagem automaticamente com números inteiros(positivos ou não)
+// tempo de execução 0.055ms
