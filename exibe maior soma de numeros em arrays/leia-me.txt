@@ -1,0 +1,5 @@
+O que este programa faz?
+1.preenche um array com números aleatórios(positivos e negativos)
+2.faz a soma com 3 números, utilizando combinações
+3.exibe todas as somas feitas
+4.exibe a maior soma de 3 números
