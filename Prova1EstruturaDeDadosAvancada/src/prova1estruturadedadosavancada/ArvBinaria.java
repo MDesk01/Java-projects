@@ -5,7 +5,7 @@ public class ArvBinaria{
 
 	private Node root; //raíz
 	private int alturaArv; //altura da árvore
-	private int qtd_node;
+	private int qtd_node; //quantidade de nos
 
 	private void insertRoot(Node novo) {
 		if (this.root == null) {
@@ -110,8 +110,7 @@ public class ArvBinaria{
 		}
 	}
 
-        //procurando e removendo o nó escolhido na classe Main
-
+        //procurando e removendo o nó escolhido na classe principal - INÍCIO
 	public Node procurarNo(int x, Node node) {
 		if (node.getDado() == x) {
 			return node;
@@ -134,20 +133,18 @@ public class ArvBinaria{
 			return (Node) null;
 		}
 	}
-        	public void removeNo(int x) {
-		//Procura o nó e o mais próximo para subir
+        	public void removeNode(int x) {
+		
 		Node node = procurarNo(x, root);
 		if (node == null) {
 			return;
 		}
-		Node next = nextSemFilhos(node);
+		Node next = nextNoSons(node);
 
 
 		// Se já nó a ser removido for raiz, raiz será o próximo
-		if (root == node) {
+		if (root == node) { // se o no a ser removido for a raiz, entao o proximo no sera a raiz
 			root = next;
-
-			// Se não, mudar conexão do Father de nó para o próximo
 		} else {
 			if (node.Father.nodeSonLeft == node) {
 				node.Father.nodeSonLeft = next;
@@ -156,19 +153,19 @@ public class ArvBinaria{
 			}
 		}
 
-		// Remover conexão do Father de próximo com próximo
+		// Remover conexão do Pai de próximo no e o subsequente
 		if (next.Father.nodeSonLeft == next) {
 			next.Father.nodeSonLeft = null;
 		} else {
 			next.Father.nodeSonRight = null;
 		}
 
-		// Copiar conexões de Father para próximo 
+		// Copiar conexões de Pai para próximo 
 		next.Father = node.Father;
 		next.nodeSonRight = node.nodeSonRight;
 		next.nodeSonLeft = node.nodeSonLeft;
 
-		// Altera conexões dos Filhos de nó
+		// Alterando conexoes dos filhos
 		if (node.nodeSonRight != null) {
 			node.nodeSonRight.Father = next;
 		}
@@ -176,23 +173,22 @@ public class ArvBinaria{
 			node.nodeSonLeft.Father = next;
 		}
 
-		// Remover conxeões de nó
+		// Tirando as conexões de nos
 		node.Father = null;
 		node.nodeSonRight = null;
 		node.nodeSonLeft = null;
 	}
-                //procura e remove-FIM
 
-	public Node nextSemFilhos(Node node) {
+	public Node nextNoSons(Node node) {
 		if (node.nodeSonLeft != null) {
-			return nextSemFilhos(node.nodeSonLeft);
+			return nextNoSons(node.nodeSonLeft);
 		} else if (node.nodeSonRight != null) {
-			return nextSemFilhos(node.nodeSonRight);
+			return nextNoSons(node.nodeSonRight);
 		} else {
 			return node;
 		}
 	}
-
+        //procura e remove - FIM
 	
 	public void printInOrdem() {
 		printInOrdem(root);
@@ -247,7 +243,7 @@ public class ArvBinaria{
 		printMenores(root.nodeSonLeft);
 	}
 
-	//Menores valores da Árvore binária de busca
+	//Método - Menores valores da Árvore binária de busca
 	private void printMenores(Node root) {
 		if (root.nodeSonLeft != null) {
 			printMenores(root.nodeSonLeft);
@@ -259,7 +255,7 @@ public class ArvBinaria{
 		}
 	}
         
-        //Métodos que buscam e exibem Fathers e Filhos com maior valor
+        //Métodos que buscam e exibem Pais e Filhos com maior valor (essa aqui é a questão 4)
         public void printFatherAndSonOld() {
 		printFatherAndSonOld(root);
 		System.out.println();

@@ -1,4 +1,4 @@
-
+//arvore binária de busca
 package prova1estruturadedadosavancada;
 
 
@@ -74,6 +74,7 @@ public class ArvBusca {
 	}
 
 	//Métodos de ordenação exigidos pegando os nós disponibilizados
+        //ADICIONANDO!!!
         
         //IN ORDEM
 	public void addInOrdem(int[] listInOrdem) {
