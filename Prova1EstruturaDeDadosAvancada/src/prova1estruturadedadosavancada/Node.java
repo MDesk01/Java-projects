@@ -6,7 +6,7 @@ public class Node {
 
 	int dado;
 	Node Father;
-	Node nodeSonLeft; //Left
+	Node nodeSonLeft; //esquerdo
 	Node nodeSonRight; //direito
 	private int profundidade;
 
@@ -62,7 +62,7 @@ public class Node {
 		this.profundidade = profundidade;
 	}
 
-	public int nivelNo() {
+	public int nivelNode() {
 		return this.getProfundidade();
 	}
 	
