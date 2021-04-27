@@ -16,14 +16,7 @@ public class ArvBinaria{
 		}
 	}
 
-	public boolean nodeLeaf(Node node) {
-		if (
-				node.nodeSonRight == null &&
-				node.nodeSonLeft == null) {
-			return true;
-		}
-		return false;
-	}
+
 
 	private void insertNaEsquerda(Node novo, Node Father) {
 		if (Father.getDado() == root.getDado()) {
@@ -256,6 +249,15 @@ public class ArvBinaria{
 	}
         
         //Métodos que buscam e exibem Pais e Filhos com maior valor (essa aqui é a questão 4)
+        	public boolean nodeLeaf(Node node) { //pegando os nos folhas para exibir no final os pais e filhos
+		if (
+				node.nodeSonRight == null &&
+				node.nodeSonLeft == null) {
+			return true;
+		}
+		return false;
+	}
+                
         public void printFatherAndSonOld() {
 		printFatherAndSonOld(root);
 		System.out.println();
