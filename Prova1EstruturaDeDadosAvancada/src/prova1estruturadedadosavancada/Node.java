@@ -1,14 +1,16 @@
 
 package prova1estruturadedadosavancada;
-
+//CLASSE NODE
+//GETS AND SETTERS
 
 public class Node {
 
-	int dado;
+	
 	Node Father;
 	Node nodeSonLeft; //esquerdo
 	Node nodeSonRight; //direito
 	private int profundidade;
+        int dado;
 
 	public Node() {
 	}
@@ -17,8 +19,8 @@ public class Node {
 		super();
 		this.dado = dado;
 		this.Father = null;
-		this.nodeSonRight = null;
-		this.nodeSonLeft = null;
+		this.nodeSonRight = null; //direita
+		this.nodeSonLeft = null; //esquerda
 	}
 
 	public int getDado() {

@@ -74,8 +74,7 @@ public class ArvBusca {
 	}
 
 	//Métodos de ordenação exigidos pegando os nós disponibilizados
-        //ADICIONANDO!!!
-        
+        //ADICIONANDO!!!        
         //IN ORDEM
 	public void addInOrdem(int[] listInOrdem) {
 		for (int i : listInOrdem) {

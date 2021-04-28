@@ -11,7 +11,7 @@ public class ArvBinaria{
 		if (this.root == null) {
 			this.root = novo;
 			this.root.setProfundidade(0);
-			System.out.println("100 foi inserido como raíz.");
+			System.out.println("Primeiro tornou-se Raíz (root).");
                         System.out.println();
 		}
 	}
@@ -248,6 +248,8 @@ public class ArvBinaria{
 		}
 	}
         
+        
+        
         //Métodos que buscam e exibem Pais e Filhos com maior valor (essa aqui é a questão 4)
         	public boolean nodeLeaf(Node node) { //pegando os nos folhas para exibir no final os pais e filhos
 		if (
@@ -275,14 +277,32 @@ public class ArvBinaria{
 
 		} else {
 			if (root.nodeSonRight == null) {
-				System.out.print("Pai: [" + root.getDado() + "]" + " Filho de Maior Valor: [" + root.getNodeSonLeft().getDado()+"]");
+				System.out.print("Pai: [" + root.getDado() + "]" + "- Filho de Maior Valor: [" + root.getNodeSonLeft().getDado()+"]");
 				System.out.println();
 			} else {
-				System.out.print("Pai: [" + root.getDado() +"]"+ " Filho de Maior Valor: [" + root.getNodeSonRight().getDado()+"]");
+				System.out.print("Pai: [" + root.getDado() +"]"+ "- Filho de Maior Valor: [" + root.getNodeSonRight().getDado()+"]");
 				System.out.println();
 			}
 		}	
 	}
+                //vendo se é estritamente binaria ou nao
+        	public boolean full() {
+		if (root != null) {
+			return verifyFull(root);
+		}
+
+		return true;
+	}
+                	public boolean verifyFull(Node node) {
+		if (node.nodeSonRight == null && node.nodeSonLeft == null) {
+			return true; 
+		} else if (node.nodeSonRight != null && node.nodeSonLeft != null) {
+			return verifyFull(node.nodeSonRight) && verifyFull(node.nodeSonLeft); 
+		}
+
+		return false;
+	}
+                        //vendo se é estritamente binaria ou nao - FIM
 
 	public int getQtd_node() {
 		return qtd_node;
